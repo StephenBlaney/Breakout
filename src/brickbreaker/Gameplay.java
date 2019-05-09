@@ -1,6 +1,7 @@
 package brickbreaker;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -23,10 +24,32 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     public Gameplay(){
         addKeyListener(this);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
-        time = new Timer(delay, this);
-        time.start();
+        setFocusable(true); //demands focus/attention of the method
+        setFocusTraversalKeysEnabled(false); //allows to change focus using tabs
+        time = new Timer(delay, this); // Timer object speed 8
+        time.start(); //begins the execution of a thread
+    }
+
+    public void paint(Graphics g){ //Draw
+        //background
+        g.setColor(Color.BLACK);
+        // Draw a rectangle
+        g.fillRect(1,1, 692, 592);
+
+        //borders
+        g.setColor(Color.yellow);
+        g.fillRect(0,0,3,592); //left
+        g.fillRect(0,0,692,3); //top
+        g.fillRect(692,0,3,592); //right
+
+        //paddle
+        g.setColor(Color.green);
+        g.fillRect(playerX, 550, 100,8); //location of paddle
+
+        //ball
+        g.setColor(Color.yellow);
+        g.fillRect(ballposX, ballposY, 20,20); //location of ball
+        
     }
 
 
