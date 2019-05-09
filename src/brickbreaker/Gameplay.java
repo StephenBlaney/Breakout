@@ -49,7 +49,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         //ball
         g.setColor(Color.yellow);
         g.fillRect(ballposX, ballposY, 20,20); //location of ball
-        
+
     }
 
 
@@ -64,12 +64,34 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) { //key listener
+    public void keyPressed(KeyEvent e) { //key listener the main one we'll be working with.
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { //When right released
+            if(playerX >= 600) { //false
+                playerX = 600; //border control keep from going out
 
+            }
+            else{
+                moveRigth() //method not created yet
+
+            }
+
+        }
+
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { //When left released
+            if(playerX >= 10) { //false
+                playerX = 10; //border control keep from going out
+
+            }
+            else{
+                moveLeft() //method not created yet
+
+            }
+
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) { //key listener
+    public void keyReleased(KeyEvent e) {
 
     }
 }
