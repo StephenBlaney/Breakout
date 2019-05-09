@@ -1,4 +1,4 @@
-# breakout
+# Breakout
 
 Breakout is an arcade game developed and published by Atari and released on May 13, 1976. It was created by Nolan Bushnell and Steve Bristov who where influenced by 1972 Atari arcade game Pong and build by Steve Wozniack. Breakout was the basis and inspiration for certain aspects of the Apple II personal computer. In Breakout, a layer of bricks lines the top third of the screen and the goal is to destroy them all. A ball moves straight around the screen, bouncing off the top and two sides of the screen. When a brick is hit, the ball bounces back and the brick is destroyed. The player loses a turn when the ball touches the bottom of the screen; to prevent this from happening, the player has a horizontally movable paddle to bounce the ball upward, keeping it in play.
 
@@ -59,4 +59,8 @@ public void moveLeft(){
 }
 ```
 
-Next, we need to create the motion of the ball. All these actions will be performed in well the actioned performed method. We start by creating a conditional that when a button is pressed we add to the current pixels of both diagonal direction by itself (-1, -2) and when the current ball exceeds the specified current position we reverse the current direction we it’s going. 
+Next, we need to create the motion of the ball. All these actions will be performed in well the actioned performed method. We start by creating a conditional that when a button is pressed we add to the current pixels of both diagonal direction by itself (-1, -2) and when the current ball exceeds the specified current position we reverse the current direction we it’s going.
+
+
+![2](https://user-images.githubusercontent.com/22968181/57463213-46224500-7272-11e9-996a-852b7cef445f.PNG)
+
