@@ -40,7 +40,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         g.setColor(Color.yellow);
         g.fillRect(0,0,3,592); //left
         g.fillRect(0,0,692,3); //top
-        g.fillRect(692,0,3,592); //right
+        g.fillRect(681,0,3,592); //right
 
         //paddle
         g.setColor(Color.green);
@@ -71,7 +71,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
             }
             else{
-                moveRigth() //method not created yet
+                moveRight();//method not created yet
 
             }
 
@@ -83,11 +83,22 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
             }
             else{
-                moveLeft() //method not created yet
+                moveLeft(); //method not created yet
 
             }
 
         }
+    }
+
+    public void moveRight(){
+        play = true; //set to false originally
+        playerX += 20; //current pos + 20
+
+    }
+
+    public void moveLeft(){
+        play = true; //set to false originally
+        playerX -= 20; //current pos + 20
     }
 
     @Override
