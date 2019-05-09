@@ -17,9 +17,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private  int playerX = 310; // Starting location of paddle
 
     private int ballposX = 120; // position of ball on the X axis
-    private int ballposY = 350; // position of ball on teh Y axis
+    private int ballposY = 350; // position of ball on the Y axis
     private int ballXdir = -1; // sets the diagonal direction of the ball x axis
-    private int ballYdir = -2; // sets the diagonal direction of teh ball y axis
+    private int ballYdir = -2; // sets the diagonal direction of the ball y axis
 
 
     public Gameplay(){
@@ -33,7 +33,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     public void paint(Graphics g){ //Draw
         //background
         g.setColor(Color.BLACK);
-        // Draw a rectangle
+        // Paint a rectangle
         g.fillRect(1,1, 692, 592);
 
         //borders
@@ -58,6 +58,29 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) { //Action listener
         time.start(); //run
+        if(play) { //if button press is true
+            if (new Rectangle(ballposX, ballposY, 20,20).intersects(new Rectangle(playerX,550,100,8))){//Makes a physical rectangle
+                ballYdir = -ballYdir; //when hit reverse direction
+            }
+            ballposX += ballXdir; // -1 + -1
+            ballposY += ballYdir; // -2 + -2
+
+            if (ballposX < 0) { //left
+                ballXdir = -ballXdir; // reverse direction
+
+            }
+
+            if (ballposY < 0) { //Top
+                ballYdir = -ballYdir; // reverse direction
+
+            }
+
+            if (ballposX > 670) { //right
+                ballXdir = -ballXdir; // reverse direction
+
+            }
+        }
+
         repaint(); //creates the change
     }
 
@@ -71,13 +94,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) { //When right released
             if(playerX >= 600) { //false
                 playerX = 600; //border control keep from going out
-
             }
             else{
                 moveRight();//method not created yet
-
             }
-
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) { //When left released
@@ -87,9 +107,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
             }
             else{
                 moveLeft(); //method not created yet
-
             }
-
         }
     }
 
