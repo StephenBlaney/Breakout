@@ -67,6 +67,41 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
             if (new Rectangle(ballposX, ballposY, 20,20).intersects(new Rectangle(playerX,550,100,8))){//Makes a physical rectangle
                 ballYdir = -ballYdir; //when hit reverse direction
             }
+
+            A: for(int i = 0; i< map.map.length; i++){
+                for(int j = 0; j < map.map[0].length; j++){
+                    if(map.map[i][j] > 0){
+                        int brickX = j* map.brickwidth + 80;
+                        int brickY =  i * map.brickheight + 50;
+                        int brickWidth = map.brickwidth;
+                        int brickHength = map.brickheight;
+
+                        Rectangle rect = new Rectangle(brickX, brickY, brickWidth, brickHength);
+                        Rectangle ballRect = new Rectangle(ballposX, ballposY, 20, 20);
+                        Rectangle brickRect = rect;
+
+                        if(ballRect.intersects(brickRect)){
+                            map.setBrickValue(0,i,j);
+                            totalbrick --;
+                            score+= 5;
+
+                            if (ballposX + 19 <= brickRect.x || ballposX + 1 >= brickRect.x +brickRect.width) {
+                                ballXdir = -ballXdir;
+
+                            }
+                            else{
+                                ballYdir = - ballYdir;
+                            }
+                            break A;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
             ballposX += ballXdir; // -1 + -1
             ballposY += ballYdir; // -2 + -2
 
@@ -132,3 +167,4 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     }
 }
+
