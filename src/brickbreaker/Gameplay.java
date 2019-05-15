@@ -54,7 +54,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) { //Action listener
         time.start(); //run

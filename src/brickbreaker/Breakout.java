@@ -15,5 +15,4 @@ public class Breakout {
         obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         obj.add(gameplay);
     }
-
 }
