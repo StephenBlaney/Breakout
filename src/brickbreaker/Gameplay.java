@@ -21,8 +21,11 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private int ballXdir = -1; // sets the diagonal direction of the ball x axis
     private int ballYdir = -2; // sets the diagonal direction of the ball y axis
 
+    private MapGenerator map; //map object
+
 
     public Gameplay(){
+        map = new MapGenerator(3,7);
         addKeyListener(this);
         setFocusable(true); //demands focus/attention of the method
         setFocusTraversalKeysEnabled(false); //allows to change focus using tabs
@@ -35,6 +38,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         g.setColor(Color.BLACK);
         // Paint a rectangle
         g.fillRect(1,1, 692, 592);
+
+        //drawing map
+        map.draw((Graphics2D)g);
 
         //borders
         g.setColor(Color.yellow);
